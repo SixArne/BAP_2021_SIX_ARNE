@@ -1,0 +1,13 @@
+# Blender MTL File: 'None'
+# Material Count: 1
+
+newmtl 10105_Computer_Keyboard_v1
+Ns 10.000002
+Ka 0.588200 0.588200 0.588200
+Kd 0.588200 0.588200 0.588200
+Ks 0.500000 0.500000 0.500000
+Ke 0.0 0.0 0.0
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd /Users/tolibzodashahrom/Downloads/Computer_Keyboard_V1_L3.123c49974e03-214d-4527-a582-78435d2e4b28/10105_Computer Keyboard_v1_Diffuse.jpg
