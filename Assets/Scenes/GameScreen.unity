@@ -10636,7 +10636,7 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 0.7783019, b: 0.7783019, a: 1}
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
   m_Intensity: 2
   m_Range: 27.056952
   m_SpotAngle: 41
@@ -16203,9 +16203,9 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 3
-  m_Range: 61.23
-  m_SpotAngle: 67
+  m_Intensity: 1.4
+  m_Range: 82.88
+  m_SpotAngle: 52.562565
   m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
@@ -16266,8 +16266,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   light: {fileID: 646046993}
-  minIntensity: 1
-  maxIntensity: 1.4
+  minIntensity: 0.5
+  maxIntensity: 0.7
   smoothing: 24
   minTimeBtwnBlackouts: 5
   maxTimeBtwnBlackouts: 10
@@ -53877,17 +53877,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5453304460733190113, guid: 699d8356fb25744b7988c7205903b5ef, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5540287214862270676, guid: 699d8356fb25744b7988c7205903b5ef, type: 3}
       propertyPath: m_Name
       value: audi_row
-      objectReference: {fileID: 0}
-    - target: {fileID: 7411796102740547587, guid: 699d8356fb25744b7988c7205903b5ef, type: 3}
-      propertyPath: m_Carve
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 699d8356fb25744b7988c7205903b5ef, type: 3}
