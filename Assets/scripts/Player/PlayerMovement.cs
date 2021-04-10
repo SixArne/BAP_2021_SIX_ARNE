@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
     private float _currentSpeed;
     private AudioSource _audioSource;
 
+    public bool IsAudible;
+
     void Start()
     {
         _audioSource = gameObject.GetComponent<AudioSource>();
@@ -47,11 +49,17 @@ public class PlayerMovement : MonoBehaviour
             case Movement.RUNNING:
                 _audioSource.pitch = _runPitch;
                 PlayWalkingSound();
+                
+                IsAudible = true;
+                
                 break;
                 
             case Movement.WALKING:
                 _audioSource.pitch = _walkPitch;
                 PlayWalkingSound();
+
+                IsAudible = false;
+                
                 break;
             
             default:

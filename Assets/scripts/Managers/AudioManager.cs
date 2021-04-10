@@ -7,6 +7,11 @@ public class AudioManager : MonoBehaviour
     public Sound[] sounds;
     public String mainTheme;
 
+    public Sound theme;
+
+    [Header("Settings")] 
+    [SerializeField] private float volumeIncreaseOnDetection = 5f;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -22,10 +27,22 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        Sound s = Array.Find(sounds, sound => sound.name == mainTheme);
+        /*
+        theme = Array.Find(sounds, sound => sound.name == mainTheme);
+        
+        theme.source.loop = true;
+        theme.source.Play();
+        */
+    }
 
-        s.source.loop = true;
-        s.source.Play();
+    void IncreaseThemeVolume()
+    {
+        theme.source.volume += volumeIncreaseOnDetection;
+    }
+
+    void DecreaseThemeVolume()
+    {
+        theme.source.volume -= volumeIncreaseOnDetection;
     }
 
     public void Pause()

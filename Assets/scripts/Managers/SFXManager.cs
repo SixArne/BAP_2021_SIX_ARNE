@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SFXManager : MonoBehaviour
 {
     public static SFXManager instance;
+    private AudioSource _theme;
+    
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -18,6 +21,9 @@ public class SFXManager : MonoBehaviour
     [SerializeField]
     int channelAmount = 5;
 
+    [SerializeField]
+    private float volumeIncreaseOnChase = .5f;
+
     List<AudioSource> sources = new List<AudioSource>();
 
     private void Start()
@@ -29,8 +35,45 @@ public class SFXManager : MonoBehaviour
             src.maxDistance = 20f;
             sources.Add(src);
         }
+
+        // instance.PlayMainTheme();
     }
 
+    #region Main theme
+
+    private void PlayMainTheme()
+    {
+        AudioClip clip = clips.First(x => x.name == "Theme").clip;
+        AudioSource src = GetFirstEmptySrc();
+
+        src.clip = clip;
+        src.loop = true;
+
+        _theme = src;
+    }
+
+    public static void IncreaseMainThemeVolume()
+    {
+        instance._IncreaseMainThemeVolume();
+    }
+
+    public static void DecreaseMainThemeVolume()
+    {
+        instance._DecreaseMainThemeVolume();
+    }
+    
+    private void _IncreaseMainThemeVolume()
+    {
+        instance._theme.volume += volumeIncreaseOnChase;
+    }
+
+    private void _DecreaseMainThemeVolume()
+    {
+        instance._theme.volume -= volumeIncreaseOnChase;
+    }
+
+    #endregion
+    
     private void _PlaySFX(string name)
     {
         if(!clips.Exists(x => x.name == name))

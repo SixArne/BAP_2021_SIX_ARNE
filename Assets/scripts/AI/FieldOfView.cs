@@ -1,19 +1,22 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FieldOfView : MonoBehaviour
 {
     [Header("Settings")] 
     [SerializeField] [Range(0, 360)] public float viewRadius;
     [SerializeField] [Range(0, 360)] public float viewAngle;
+    [SerializeField] public Color debugDetectionColor;
 
     [Header("References")] 
     [SerializeField] private LayerMask targetMask;
     [SerializeField] private LayerMask obstacleMask;
-
-    public bool playerInView;
-
+    [SerializeField] private Animator animator;
+    [SerializeField] private PlayerMovement player;
+    
     IEnumerator FindTargetsWithDelay(float delay)
     {
         while (true)
@@ -23,12 +26,26 @@ public class FieldOfView : MonoBehaviour
         }
     }
     
+    // AI Game over collider
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            SceneManager.LoadScene("MenuScreen");
+            Cursor.lockState = CursorLockMode.None;
+        }
+    }
+    
     void FindVisibleTargets()
     {
-        playerInView = false;
-        
         Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
 
+        if (targetsInViewRadius.Length == 0)
+        {
+            animator.SetBool("hasLineOfSight", false);
+            return;
+        }
+        
         foreach (Collider target in targetsInViewRadius)
         {
             Transform t = target.transform;
@@ -40,16 +57,33 @@ public class FieldOfView : MonoBehaviour
 
                 if (!Physics.Raycast(transform.position, dirTarget, dstToTarget, obstacleMask))
                 {
-                    playerInView = true;
+                    animator.SetBool("hasLineOfSight", true);
+                }
+                else
+                {
+                    // In this case something block the line of sight, but sound should still be audible
+                    animator.SetBool("hasHeardSound", TargetIsAudible());
+                    animator.SetBool("hasLineOfSight", false);
                 }
             }
             else
             {
-                playerInView = false;
+                animator.SetBool("hasHeardSound", TargetIsAudible());
             }
         }
     }
-    
+
+    bool TargetIsAudible()
+    {
+        return (player.IsAudible);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = debugDetectionColor;
+        Gizmos.DrawSphere(transform.position, viewRadius);
+    }
+
     public Vector3 DirectionFromAngle(float angleInDegrees, bool angleIsGlobal)
     {
         if (!angleIsGlobal)
@@ -58,11 +92,11 @@ public class FieldOfView : MonoBehaviour
         }
         return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
     }
-    
+
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine("FindTargetsWithDelay", .2f);
+        StartCoroutine(FindTargetsWithDelay(.2f));
     }
 
     // Update is called once per frame
