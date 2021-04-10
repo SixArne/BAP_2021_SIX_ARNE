@@ -43,6 +43,8 @@ public class FieldOfView : MonoBehaviour
         if (targetsInViewRadius.Length == 0)
         {
             animator.SetBool("hasLineOfSight", false);
+            animator.SetBool("hasHeardSound", false);
+            
             return;
         }
         

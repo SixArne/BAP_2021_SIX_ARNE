@@ -36,6 +36,8 @@ public class PatrolBehaviour : StateMachineBehaviour
         _waypointsVisited++;
         
         agent.SetDestination(closestPoint.transform.position);
+        
+        AudioHandler.INSTANCE.ReturnToDefault();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

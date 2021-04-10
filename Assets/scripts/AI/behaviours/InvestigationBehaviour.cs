@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class InvestigationBehaviour : StateMachineBehaviour
 {
+    [Header("References")] 
+    [SerializeField] private AudioClip investigatingClip;
+    
     [SerializeField] private float _investigationTime = 10;
 
     private float _currentTime;
@@ -11,7 +14,7 @@ public class InvestigationBehaviour : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        SFXManager.PlaySFX("Searching");
+        AudioHandler.INSTANCE.SwapTrack(investigatingClip);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -28,7 +31,6 @@ public class InvestigationBehaviour : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        SFXManager.PlaySFX("Lost");
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

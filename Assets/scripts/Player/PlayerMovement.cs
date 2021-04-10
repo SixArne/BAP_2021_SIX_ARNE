@@ -63,6 +63,8 @@ public class PlayerMovement : MonoBehaviour
                 break;
             
             default:
+
+                IsAudible = false;
                 break;
         }
     }

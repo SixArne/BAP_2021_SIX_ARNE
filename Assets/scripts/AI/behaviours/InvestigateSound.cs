@@ -12,6 +12,9 @@ public class InvestigateSound : StateMachineBehaviour
      * chase state.
      */
     
+    [Header("References")] 
+    [SerializeField] private AudioClip investigatingClip;
+    
     [Header("Settings")] 
     [SerializeField] private float investigationTime;
     [SerializeField] private float agentChasingSpeed;
@@ -21,6 +24,7 @@ public class InvestigateSound : StateMachineBehaviour
     private NavMeshAgent _agent;
 
     private Transform _lastPosition;
+    private float _agentPatrollingSpeed;
     
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -32,10 +36,11 @@ public class InvestigateSound : StateMachineBehaviour
             _agent = animator.gameObject.GetComponent<NavMeshAgent>();
         }
 
-        SFXManager.PlaySFX("SoundDetected");
-
-        _agent.speed += agentChasingSpeed;
+        _agentPatrollingSpeed = _agent.speed;
+        _agent.speed = agentChasingSpeed;
         _agent.SetDestination(_lastPosition.position);
+        
+        AudioHandler.INSTANCE.SwapTrack(investigatingClip);
     }
     
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -57,7 +62,6 @@ public class InvestigateSound : StateMachineBehaviour
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex, AnimatorControllerPlayable controller)
     {
-        _agent.speed -= agentChasingSpeed;
-        SFXManager.PlaySFX("NoOne");
+        _agent.speed = _agentPatrollingSpeed;
     }
 }

@@ -9,6 +9,9 @@ public class ChasingPlayer : StateMachineBehaviour
     private GameObject player;
     private NavMeshAgent agent;
 
+    [Header("References")] 
+    [SerializeField] private AudioClip chasingClip;
+
     [Header("Settings")]
     [SerializeField] private float agentChasingSpeed;
     [SerializeField] [Range(0, 20)] private float visionDistanceIncrease;
@@ -31,7 +34,7 @@ public class ChasingPlayer : StateMachineBehaviour
 
         player = GameObject.FindWithTag("Player");
         
-        SFXManager.PlaySFX("Detected");
+        AudioHandler.INSTANCE.SwapTrack(chasingClip);
     }
     
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
