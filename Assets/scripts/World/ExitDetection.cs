@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class ExitDetection : MonoBehaviour
 {
-    [SerializeField]
-    private ScoreManager _scoreManager;
+    [Header("References")]
+    [SerializeField] private ScoreManager _scoreManager;
+    [SerializeField] private NotificationMenu _notificationMenu;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -19,7 +20,7 @@ public class ExitDetection : MonoBehaviour
             }
             else
             {
-                Debug.Log("Please collect all objects first");
+                _notificationMenu.GetAll();
             }
         }
     }

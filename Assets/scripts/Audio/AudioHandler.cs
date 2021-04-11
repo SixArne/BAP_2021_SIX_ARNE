@@ -22,9 +22,25 @@ public class AudioHandler : MonoBehaviour
     {
         track1 = gameObject.AddComponent<AudioSource>();
         track2 = gameObject.AddComponent<AudioSource>();
+
+        track1.volume = .2f;
+        track2.volume = .2f;
+        
         isPlayingTrack1 = true;
         
         SwapTrack(defaultAmbience);
+    }
+
+    public void Pause()
+    {
+        track1.Pause();
+        track2.Pause();
+    }
+
+    public void Resume()
+    {
+        track1.Play();
+        track2.Play();
     }
 
     public void SwapTrack(AudioClip newClip)
@@ -66,8 +82,7 @@ public class AudioHandler : MonoBehaviour
         {
             track1.clip = newClip;
             track1.Play();
-            
-            
+
             while (timeElapsed < timeToFade)
             {
                 track1.volume = Mathf.Lerp(0, 1, timeElapsed / timeToFade);

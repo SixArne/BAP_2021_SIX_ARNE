@@ -8,11 +8,13 @@ using Random = UnityEngine.Random;
 public class SpawnManager : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] private GameObject collectablePrefab;
+    //[SerializeField] private GameObject collectablePrefab;
     [SerializeField] private GameObject mapIconPrefab;
     [SerializeField] private GameObject childMap;
     [SerializeField] private GameObject map;
     [SerializeField] private String tagName;
+    [SerializeField] private List<GameObject> collectablePrefabs;
+    
 
     [SerializeField] public int spawns = 9;
 
@@ -64,8 +66,10 @@ public class SpawnManager : MonoBehaviour
             List<GameObject> possibleSpawnpoints = spawnpoints.FindAll(sp => sp.GetComponent<MapLocation>().classroom == b);
 
             int r = Random.Range(0, possibleSpawnpoints.Count);
+
+            GameObject randomObject = collectablePrefabs[Random.Range(0, collectablePrefabs.Count)];
             
-            GameObject spawnedCollectable = Instantiate(collectablePrefab, possibleSpawnpoints[r].transform.position, possibleSpawnpoints[r].transform.rotation);
+            GameObject spawnedCollectable = Instantiate(randomObject, possibleSpawnpoints[r].transform.position, possibleSpawnpoints[r].transform.rotation);
             spawnedCollectable.GetComponent<MapLocation>().classroom = b;
         }
     }

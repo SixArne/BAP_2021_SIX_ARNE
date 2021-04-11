@@ -18,4 +18,5 @@ public enum Classroom
     TOILET_B2,
     REFTER,
     MEDIATHEEK,
+    STILLE_RUIMTE
 }
