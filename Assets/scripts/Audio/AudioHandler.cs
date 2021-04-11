@@ -2,13 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioHandler : MonoBehaviour
 {
     public static AudioHandler INSTANCE;
     public AudioClip defaultAmbience;
 
-    private AudioSource track1, track2;
+    [SerializeField] private AudioSource track1, track2;
     private bool isPlayingTrack1;
     
     private void Awake()
@@ -20,12 +21,6 @@ public class AudioHandler : MonoBehaviour
 
     private void Start()
     {
-        track1 = gameObject.AddComponent<AudioSource>();
-        track2 = gameObject.AddComponent<AudioSource>();
-
-        track1.volume = .2f;
-        track2.volume = .2f;
-        
         isPlayingTrack1 = true;
         
         SwapTrack(defaultAmbience);
