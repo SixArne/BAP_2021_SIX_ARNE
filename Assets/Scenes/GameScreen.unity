@@ -7027,6 +7027,7 @@ Transform:
   - {fileID: 43682812}
   - {fileID: 1161069561}
   - {fileID: 811119256}
+  - {fileID: 1189826295}
   m_Father: {fileID: 1358264990}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19652,6 +19653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 73f452c0b4f8641558b8b21e41ad2349, type: 2}
+  defaultVolume: 0.5
 --- !u!114 &760574672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31216,6 +31218,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3918389455651133553, guid: cd75acdc039244f7799d3720d0eb36d1, type: 3}
   m_PrefabInstance: {fileID: 1187049805}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1189826294
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1189826295}
+  - component: {fileID: 1189826296}
+  m_Layer: 0
+  m_Name: toilets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1189826295
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189826294}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 258135642}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1189826296
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189826294}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 50.645874, y: 35.23296, z: 4.5421143}
+  m_Center: {x: 35.237114, y: 12.080235, z: -42.545013}
 --- !u!1001 &1190064172
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -32,7 +32,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         IsPaused = false;
         
-        if (audioManager != null) audioManager.Resume();
+        AudioHandler.INSTANCE.Resume();
     }
 
     void Pause()
@@ -42,7 +42,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         IsPaused = true;
         
-        if (audioManager != null) audioManager.Pause();
+        AudioHandler.INSTANCE.Pause();
     }
 
     public void LoadMenu()
