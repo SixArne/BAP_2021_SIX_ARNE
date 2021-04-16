@@ -12,7 +12,7 @@ public class CollectableRaycast : MonoBehaviour
 
     private PiController raycastedObj;
 
-    [SerializeField] private KeyCode openDoorKey = KeyCode.Mouse0;
+    //[SerializeField] private KeyCode openDoorKey = KeyCode.Mouse0;
 
     [SerializeField] private Image crosshair = null;
     private bool isCrosshairActive;
@@ -43,10 +43,12 @@ public class CollectableRaycast : MonoBehaviour
                 crosshair.enabled = true;
                 doOnce = true;
 
+                /*
                 if (Input.GetKeyDown(openDoorKey))
                 {
                     raycastedObj.Collect();
                 }
+                */
             }
         }
 

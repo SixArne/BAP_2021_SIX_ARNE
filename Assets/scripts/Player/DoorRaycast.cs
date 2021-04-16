@@ -13,7 +13,7 @@ public class DoorRaycast : MonoBehaviour
 
     private DoorController raycastedObj;
 
-    [SerializeField] private KeyCode openDoorKey = KeyCode.Mouse0;
+    //[SerializeField] private KeyCode openDoorKey = KeyCode.Mouse0;
 
     [SerializeField] private Image crosshair = null;
     private bool isCrosshairActive;
@@ -47,10 +47,12 @@ public class DoorRaycast : MonoBehaviour
                 crosshair.enabled = true;
                 doOnce = true;
 
+                /*
                 if (Input.GetKeyDown(openDoorKey))
                 {
                     raycastedObj.PlayAnimation();
                 }
+                */
             }
         }
 

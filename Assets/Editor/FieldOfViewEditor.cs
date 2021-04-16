@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+/*
 [CustomEditor(typeof(FieldOfView))]
 public class FieldOfViewEditor : Editor
 {
@@ -20,3 +21,4 @@ public class FieldOfViewEditor : Editor
         Handles.DrawLine(fow.transform.position, fow.transform.position + viewAngleB * fow.viewRadius);
     }
 }
+*/

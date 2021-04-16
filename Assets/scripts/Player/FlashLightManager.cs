@@ -18,11 +18,13 @@ public class FlashLightManager : MonoBehaviour
     
     void Update ()
     {
+        /*
         if(Input.GetKeyUp(KeyCode.Space))
         {
             Debug.Log("space pressed");
             myLight.enabled = !myLight.enabled;
             audioManager.Play("footstep");
         }
+        */
     }
 }

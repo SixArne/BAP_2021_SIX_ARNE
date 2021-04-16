@@ -9,9 +9,11 @@ public class MapController : MonoBehaviour
 
     void Update()
     {
+        /*
         if(Input.GetKeyUp(KeyCode.E))
         {
             map.SetActive(!map.activeInHierarchy);
         }
+        */
     }
 }

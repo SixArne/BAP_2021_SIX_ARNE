@@ -15,7 +15,7 @@ public class FieldOfView : MonoBehaviour
     [SerializeField] private LayerMask targetMask;
     [SerializeField] private LayerMask obstacleMask;
     [SerializeField] private Animator animator;
-    [SerializeField] private PlayerMovement player;
+    [SerializeField] private PlayerMove player;
     
     IEnumerator FindTargetsWithDelay(float delay)
     {
