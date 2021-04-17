@@ -35369,7 +35369,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1346077780
 Transform:
   m_ObjectHideFlags: 0
@@ -35768,7 +35768,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1358264990
 Transform:
   m_ObjectHideFlags: 0
@@ -39792,7 +39792,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1505624720}
         m_TargetAssemblyTypeName: PlayerMove, Assembly-CSharp
-        m_MethodName: Move
+        m_MethodName: OnMove
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -39805,13 +39805,41 @@ MonoBehaviour:
     m_ActionId: 0af4cfa9-a0a0-4c51-9649-50234f8bb51b
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1505624720}
+        m_TargetAssemblyTypeName: PlayerMove, Assembly-CSharp
+        m_MethodName: OnRun
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: fea79912-1a48-4aad-a5f9-0d629297745b
     m_ActionName: Player/Run[/Keyboard/leftShift]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: e869dfd3-8f55-400b-94e3-e3e691e1d39b
     m_ActionName: Player/Interact[/Mouse/press]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1505624720}
+        m_TargetAssemblyTypeName: PlayerMove, Assembly-CSharp
+        m_MethodName: OnLook
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 426a0a38-ef15-4189-acbf-24c3a037219c
+    m_ActionName: Player/Look[/Mouse/delta/x,/Mouse/delta/y]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -39829,8 +39857,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce6b6b4adb1ce482f88caa87c67ecbeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 7
+  walkSpeed: 5
+  runSpeed: 15
+  sensitivityX: 5
+  sensitivityY: 5
+  minY: -60
+  maxY: 60
   IsAudible: 0
+  cam: {fileID: 86286756}
 --- !u!1001 &1505905067
 PrefabInstance:
   m_ObjectHideFlags: 0

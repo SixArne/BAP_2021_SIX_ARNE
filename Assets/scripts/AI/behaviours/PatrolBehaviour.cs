@@ -45,7 +45,6 @@ public class PatrolBehaviour : StateMachineBehaviour
     {
         if (_isTravelling && agent.remainingDistance <= 1.0f)
         {
-            Debug.Log("Yes");
             SetDestination();
         }
     }
@@ -60,7 +59,6 @@ public class PatrolBehaviour : StateMachineBehaviour
     {
         if (_waypointsVisited > 0)
         {
-            Debug.Log("Setting destination");
             ConnectedWaypoint nextWaypoint = _currentWaypoint.NextWaypoint(_previousWaypoint);
             _previousWaypoint = _currentWaypoint;
             _currentWaypoint = nextWaypoint;
