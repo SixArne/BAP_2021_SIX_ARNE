@@ -7855,6 +7855,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eca3e24c47b5c4b81803b607bf1361b7, type: 3}
+--- !u!95 &245012834 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1238344678919591437, guid: f2977b50e75c44f6a9c7021c903b1974, type: 3}
+  m_PrefabInstance: {fileID: 1238344678838481532}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &249204234 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 557546518459306895, guid: 9c0196e1a66f240518ecdc8c5ca23fc6, type: 3}
@@ -47909,13 +47914,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 7
-  runSpeed: 12
+  runSpeed: 17
   sensitivityX: 5
   sensitivityY: 5
   minY: -60
   maxY: 60
   inputHandler: {fileID: 628900678}
   _camera: {fileID: 86286756}
+  animator: {fileID: 245012834}
   IsAudible: 0
 --- !u!1001 &1505905067
 PrefabInstance:

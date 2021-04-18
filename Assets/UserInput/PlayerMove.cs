@@ -16,6 +16,7 @@ public class PlayerMove : MonoBehaviour
     [Header("References")] 
     [SerializeField] private InputHandler inputHandler;
     [SerializeField] private Transform _camera;
+    [SerializeField] private Animator animator;
     
     public bool IsAudible = false;
     
@@ -53,13 +54,12 @@ public class PlayerMove : MonoBehaviour
         if (inputHandler.HasRanThisFrame)
         {
             _moveSpeed = runSpeed;
+            animator.SetBool("hasHeardSound", true);
+        } else {
+             _moveSpeed = walkSpeed;
+             animator.SetBool("hasHeardSound", false);
         }
- 
-        if (inputHandler.HasJumpedThisFrame)
-        {
-            _moveSpeed = walkSpeed;
-        }
- 
+
         Debug.Log(inputHandler.NextFrameMoveDirection);
         Vector3 moveDirection = transform.right * inputHandler.NextFrameMoveDirection.x + transform.forward * inputHandler.NextFrameMoveDirection.y;
 
