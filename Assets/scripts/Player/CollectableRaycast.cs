@@ -9,6 +9,9 @@ public class CollectableRaycast : MonoBehaviour
     [SerializeField] private int rayLength = 5;
     [SerializeField] private LayerMask layerMaskInteract;
     [SerializeField] private string excludeLayerName = null;
+    
+    [Header("References")] 
+    [SerializeField] private InputHandler _inputHandler;
 
     private PiController raycastedObj;
 
@@ -43,12 +46,11 @@ public class CollectableRaycast : MonoBehaviour
                 crosshair.enabled = true;
                 doOnce = true;
 
-                /*
-                if (Input.GetKeyDown(openDoorKey))
+   
+                if (_inputHandler.HasClickedThisFrame)
                 {
                     raycastedObj.Collect();
                 }
-                */
             }
         }
 

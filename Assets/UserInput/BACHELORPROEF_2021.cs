@@ -32,7 +32,7 @@ public class @BACHELORPROEF_2021 : IInputActionCollection, IDisposable
                     ""id"": ""fea79912-1a48-4aad-a5f9-0d629297745b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Hold""
+                    ""interactions"": ""Hold(duration=0.1,pressPoint=0.1)""
                 },
                 {
                     ""name"": ""Interact"",
@@ -40,7 +40,7 @@ public class @BACHELORPROEF_2021 : IInputActionCollection, IDisposable
                     ""id"": ""e869dfd3-8f55-400b-94e3-e3e691e1d39b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Hold,Press""
+                    ""interactions"": """"
                 },
                 {
                     ""name"": ""Look"",

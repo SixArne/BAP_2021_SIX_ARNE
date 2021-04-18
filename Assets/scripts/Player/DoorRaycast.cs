@@ -11,6 +11,9 @@ public class DoorRaycast : MonoBehaviour
     [SerializeField] private LayerMask layerMaskInteract;
     [SerializeField] private string excludeLayerName = null;
 
+    [Header("References")] 
+    [SerializeField] private InputHandler _inputHandler;
+
     private DoorController raycastedObj;
 
     //[SerializeField] private KeyCode openDoorKey = KeyCode.Mouse0;
@@ -46,13 +49,11 @@ public class DoorRaycast : MonoBehaviour
                 isCrosshairActive = true;
                 crosshair.enabled = true;
                 doOnce = true;
-
-                /*
-                if (Input.GetKeyDown(openDoorKey))
+                
+                if (_inputHandler.HasClickedThisFrame)
                 {
                     raycastedObj.PlayAnimation();
                 }
-                */
             }
         }
 
