@@ -23,7 +23,7 @@ public class InvestigateSound : StateMachineBehaviour
     private GameObject _player;
     private NavMeshAgent _agent;
 
-    private Transform _lastPosition;
+    private Vector3 _lastPosition;
     private float _agentPatrollingSpeed;
     
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -32,22 +32,22 @@ public class InvestigateSound : StateMachineBehaviour
         if (_player == null && _agent == null)
         {
             _player = GameObject.FindWithTag("Player");
-            _lastPosition = _player.transform;
+            _lastPosition = _player.transform.position;
             _agent = animator.gameObject.GetComponent<NavMeshAgent>();
         }
 
         _agentPatrollingSpeed = _agent.speed;
         _agent.speed = agentChasingSpeed;
-        _agent.SetDestination(_lastPosition.position);
+        _agent.SetDestination(_lastPosition);
         
         AudioHandler.INSTANCE.SwapTrack(investigatingClip);
     }
     
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if ((!(Vector3.Distance(_agent.transform.position, _lastPosition.position) <= 5f)))
+        if ((!(Vector3.Distance(_agent.transform.position, _lastPosition) <= 5f)))
         {
-            _agent.SetDestination(_lastPosition.position);
+            _agent.SetDestination(_lastPosition);
 
             return;
         }

@@ -54,13 +54,11 @@ public class PlayerMove : MonoBehaviour
         if (inputHandler.HasRanThisFrame)
         {
             _moveSpeed = runSpeed;
-            animator.SetBool("hasHeardSound", true);
+            animator.SetTrigger("madeSound");
         } else {
              _moveSpeed = walkSpeed;
-             animator.SetBool("hasHeardSound", false);
         }
-
-        Debug.Log(inputHandler.NextFrameMoveDirection);
+        
         Vector3 moveDirection = transform.right * inputHandler.NextFrameMoveDirection.x + transform.forward * inputHandler.NextFrameMoveDirection.y;
 
         controller.Move(moveDirection * (_moveSpeed * Time.deltaTime));

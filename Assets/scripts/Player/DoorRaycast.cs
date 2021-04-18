@@ -13,6 +13,7 @@ public class DoorRaycast : MonoBehaviour
 
     [Header("References")] 
     [SerializeField] private InputHandler _inputHandler;
+    [SerializeField] private Animator animator;
 
     private DoorController raycastedObj;
 
@@ -52,6 +53,7 @@ public class DoorRaycast : MonoBehaviour
                 
                 if (_inputHandler.HasClickedThisFrame)
                 {
+                    animator.SetTrigger("madeSound");
                     raycastedObj.PlayAnimation();
                 }
             }

@@ -36,7 +36,6 @@ public class DoorController : MonoBehaviour
     {
         if (_currentDelay >= _delay)
         {
-            
             if (!_doorIsOpen)
             {
                 _doorAnimation.Play("DoorOpen", 0, 0.0f);

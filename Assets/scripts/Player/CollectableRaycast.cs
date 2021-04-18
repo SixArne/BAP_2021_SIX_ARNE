@@ -12,6 +12,7 @@ public class CollectableRaycast : MonoBehaviour
     
     [Header("References")] 
     [SerializeField] private InputHandler _inputHandler;
+    [SerializeField] private Animator animator;
 
     private PiController raycastedObj;
 
@@ -49,6 +50,7 @@ public class CollectableRaycast : MonoBehaviour
    
                 if (_inputHandler.HasClickedThisFrame)
                 {
+                    animator.SetTrigger("madeSound");
                     raycastedObj.Collect();
                 }
             }
