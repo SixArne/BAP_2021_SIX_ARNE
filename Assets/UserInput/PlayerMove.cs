@@ -12,11 +12,17 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float sensitivityY;
     [SerializeField] private float minY = -60f;
     [SerializeField] private float maxY = 60f;
+    [SerializeField] private float gravity = 9.81f;
+    [SerializeField] private float _groundDistance = 0.4f;
 
     [Header("References")] 
-    [SerializeField] private InputHandler inputHandler;
     [SerializeField] private Transform _camera;
     [SerializeField] private Animator animator;
+    [SerializeField] private Transform _groundCheck;
+    [SerializeField] private LayerMask _groundMask;
+
+    // Calculation variables
+    private bool _isGrounded;
     
     public bool IsAudible = false;
     
@@ -24,6 +30,8 @@ public class PlayerMove : MonoBehaviour
  
     CharacterController controller;
     Transform player;
+
+    Vector3 velocity;
 
     // Start is called before the first frame update
     void Start()
@@ -44,23 +52,39 @@ public class PlayerMove : MonoBehaviour
  
     void Look()
     {
-        float lookY = Mathf.Clamp(inputHandler.LookY * sensitivityY, minY, maxY);
-        player.localEulerAngles = new Vector3(0,inputHandler.LookX * sensitivityX, 0);
+        float lookY = Mathf.Clamp(InputHandler.LookY * sensitivityY, minY, maxY);
+        player.localEulerAngles = new Vector3(0, InputHandler.LookX * sensitivityX, 0);
         _camera.localEulerAngles = new Vector3(lookY, 0, 0);
     }
  
     void Move()
     {
-        if (inputHandler.HasRanThisFrame)
+        GroundTheFuckingPlayer();
+
+        if (InputHandler.HasRanThisFrame)
         {
             _moveSpeed = runSpeed;
-            animator.SetTrigger("madeSound");
+            if (animator != null) animator.SetTrigger("madeSound");
         } else {
              _moveSpeed = walkSpeed;
         }
         
-        Vector3 moveDirection = transform.right * inputHandler.NextFrameMoveDirection.x + transform.forward * inputHandler.NextFrameMoveDirection.y;
+        Vector3 moveDirection = transform.right * InputHandler.NextFrameMoveDirection.x + transform.forward * InputHandler.NextFrameMoveDirection.y;
 
         controller.Move(moveDirection * (_moveSpeed * Time.deltaTime));
+
+        velocity.y -= gravity * Time.deltaTime;
+
+        controller.Move(velocity * Time.deltaTime);
+    }
+
+    private void GroundTheFuckingPlayer()
+    {
+        _isGrounded = Physics.CheckSphere(_groundCheck.position, _groundDistance, _groundMask);
+
+        if (_isGrounded && velocity.y < 0)
+        {
+            velocity.y = -2f;
+        }
     }
 }

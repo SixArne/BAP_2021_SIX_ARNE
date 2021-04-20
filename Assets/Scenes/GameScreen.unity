@@ -19333,6 +19333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46b9d49e1e8154514bb753bf6374a138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hasUsedFlashlightThisFrame: 0
 --- !u!1001 &633743499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47700,6 +47701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb44ee237d4b4ef4b062776bbe0bd8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debounce: 2
 --- !u!82 &1505624717
 AudioSource:
   m_ObjectHideFlags: 0
@@ -47898,6 +47900,18 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 426a0a38-ef15-4189-acbf-24c3a037219c
     m_ActionName: Player/Look[/Mouse/delta/x,/Mouse/delta/y]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fb2e0f91-af4f-46bc-b9b5-11a998db04f5
+    m_ActionName: Player/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3386d93a-0b94-41d5-9d47-0f039a7afcd7
+    m_ActionName: Player/Flashlight[/Keyboard/f]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ad4b745c-ea43-44c1-951b-b103bd04fef6
+    m_ActionName: Player/Map[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -47917,13 +47931,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 7
   runSpeed: 17
-  sensitivityX: 9
-  sensitivityY: 9
+  sensitivityX: 1
+  sensitivityY: 1
   minY: -60
   maxY: 60
-  inputHandler: {fileID: 628900678}
+  gravity: 9.81
+  _groundDistance: 0.4
   _camera: {fileID: 86286756}
   animator: {fileID: 245012834}
+  _groundCheck: {fileID: 178747465}
+  _groundMask:
+    serializedVersion: 2
+    m_Bits: 256
   IsAudible: 0
 --- !u!1001 &1505905067
 PrefabInstance:
@@ -56734,6 +56753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 613802906}
   audioManager: {fileID: 1812863255}
+  inputHandler: {fileID: 0}
 --- !u!1 &1850068709
 GameObject:
   m_ObjectHideFlags: 0

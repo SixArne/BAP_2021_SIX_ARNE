@@ -5,20 +5,33 @@ using UnityEngine.InputSystem;
 
 public class InputHandler : MonoBehaviour
 {
+    public static InputHandler INSTANCE;
+
+    public void Awake()
+    {
+        if (INSTANCE == null) INSTANCE = this;
+        else Destroy(this.gameObject);
+    }
+
     private bool _hasJumpedThisFrame;
     private bool _hasRanThisFrame;
     private bool _hasClickedThisFrame;
-
+    private bool _hasPausedThisFrame;
+    [SerializeField] private bool _hasUsedFlashlightThisFrame;
+    private bool _hasOpenedMap;
     private Vector2 _nextFrameMoveDirection;
     private float _lookX;
     private float _lookY;
 
-    public bool HasJumpedThisFrame => _hasJumpedThisFrame;
-    public bool HasRanThisFrame => _hasRanThisFrame;
-    public Vector2 NextFrameMoveDirection => _nextFrameMoveDirection;
-    public bool HasClickedThisFrame => _hasClickedThisFrame;
-    public float LookX => _lookX;
-    public float LookY => _lookY;
+    public static bool HasJumpedThisFrame =>INSTANCE._hasJumpedThisFrame;
+    public static bool HasRanThisFrame => INSTANCE._hasRanThisFrame;
+    public static Vector2 NextFrameMoveDirection => INSTANCE._nextFrameMoveDirection;
+    public static bool HasClickedThisFrame => INSTANCE._hasClickedThisFrame;
+    public static bool HasPausedThisFrame => INSTANCE._hasPausedThisFrame;
+    public static bool HasUsedFlashlightThisFrame => INSTANCE._hasUsedFlashlightThisFrame;
+    public static bool HasOpenedMap => INSTANCE._hasOpenedMap;
+    public static float LookX => INSTANCE._lookX;
+    public static float LookY => INSTANCE._lookY;
     
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -44,5 +57,21 @@ public class InputHandler : MonoBehaviour
     public void OnRun(InputAction.CallbackContext context)
     {
         _hasRanThisFrame = context.performed;
+    }
+
+    public void OnPause(InputAction.CallbackContext context) 
+    {
+        _hasPausedThisFrame = context.performed;
+    }
+
+    public void OnFlashlight(InputAction.CallbackContext context) 
+    {
+        _hasUsedFlashlightThisFrame = context.performed;
+        Debug.Log("flash");
+    }
+
+    public void OnMap(InputAction.CallbackContext context) 
+    {
+        _hasUsedFlashlightThisFrame = context.performed;
     }
 }

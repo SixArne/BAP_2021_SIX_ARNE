@@ -48,7 +48,7 @@ public class CollectableRaycast : MonoBehaviour
                 doOnce = true;
 
    
-                if (_inputHandler.HasClickedThisFrame)
+                if (InputHandler.HasClickedThisFrame)
                 {
                     animator.SetTrigger("madeSound");
                     raycastedObj.Collect();

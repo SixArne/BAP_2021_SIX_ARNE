@@ -16,9 +16,11 @@ public class AudioAdjustment : MonoBehaviour
     private Slider _slider;
     private void Awake()
     {
+        float volume; 
+        mixer.GetFloat("MusicVolume", out volume);
+
         _slider = GetComponent<Slider>();
-        _slider.value = defaultVolume;
-        mixer.SetFloat("MusicVolume", Mathf.Log(defaultVolume) * 20);
+        _slider.value = Mathf.Pow(10, volume);
     }
 
     public void SetLevel(float volume)

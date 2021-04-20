@@ -7,6 +7,11 @@ public class FlashLightManager : MonoBehaviour
     private GameObject lightObject;
     private Light myLight;
     private AudioManager audioManager;
+
+    private float _currentTime = 0;
+
+    private bool hasUsedFlashlightLastFrame;
+    [SerializeField] private float debounce = 2f;
     
     void Start ()
     {
@@ -19,12 +24,23 @@ public class FlashLightManager : MonoBehaviour
     void Update ()
     {
         /*
-        if(Input.GetKeyUp(KeyCode.Space))
+        _currentTime += Time.deltaTime;
+
+        if(InputHandler.HasUsedFlashlightThisFrame && _currentTime > debounce)
         {
             Debug.Log("space pressed");
             myLight.enabled = !myLight.enabled;
-            audioManager.Play("footstep");
+            // audioManager.Play("footstep");
+
+            _currentTime = 0;
         }
         */
+        if (!hasUsedFlashlightLastFrame && InputHandler.HasUsedFlashlightThisFrame) 
+        {
+            Debug.Log("space pressed");
+            myLight.enabled = !myLight.enabled;
+        }
+
+        hasUsedFlashlightLastFrame = InputHandler.HasUsedFlashlightThisFrame;
     }
 }

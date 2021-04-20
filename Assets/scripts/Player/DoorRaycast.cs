@@ -51,7 +51,7 @@ public class DoorRaycast : MonoBehaviour
                 crosshair.enabled = true;
                 doOnce = true;
                 
-                if (_inputHandler.HasClickedThisFrame)
+                if (InputHandler.HasClickedThisFrame)
                 {
                     animator.SetTrigger("madeSound");
                     raycastedObj.PlayAnimation();
