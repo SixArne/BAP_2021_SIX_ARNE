@@ -11,10 +11,12 @@ public class PauseMenu : MonoBehaviour
 
     public InputHandler inputHandler;
 
+    private bool hasPausedLastFrame;
+
     // Update is called once per frame
     void Update()
     {
-        if (InputHandler.HasPausedThisFrame)
+        if (InputHandler.HasPausedThisFrame && !hasPausedLastFrame)
         {
             if (IsPaused)
             {
@@ -25,6 +27,8 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }
+
+        hasPausedLastFrame = InputHandler.HasPausedThisFrame;
     }
 
     public void Resume()
@@ -33,8 +37,6 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1f;
         IsPaused = false;
-        
-        if (audioManager != null) audioManager.Resume();
     }
 
     void Pause()
@@ -43,8 +45,6 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0f;
         IsPaused = true;
-        
-        if (audioManager != null) audioManager.Pause();
     }
 
     public void LoadMenu()

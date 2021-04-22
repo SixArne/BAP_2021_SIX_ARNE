@@ -178,7 +178,7 @@ public class @BACHELORPROEF_2021 : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""6e989a3e-c26a-43b4-9a7e-5f0bc08a5ce7"",
-                    ""path"": ""<Keyboard>/f"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

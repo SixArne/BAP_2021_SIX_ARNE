@@ -1828,12 +1828,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 7
   runSpeed: 17
-  sensitivityX: 1
-  sensitivityY: 1
+  sensitivityX: 2
+  sensitivityY: 2
   minY: -60
   maxY: 60
+  gravity: 9.81
+  _groundDistance: 0.4
   _camera: {fileID: 1993343898}
   animator: {fileID: 0}
+  _groundCheck: {fileID: 1271543587}
+  _groundMask:
+    serializedVersion: 2
+    m_Bits: 0
+  _light: {fileID: 2129568045}
   IsAudible: 0
 --- !u!114 &922932813
 MonoBehaviour:

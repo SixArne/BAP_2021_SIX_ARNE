@@ -20,6 +20,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private LayerMask _groundMask;
+    [SerializeField] private Light _light;
 
     // Calculation variables
     private bool _isGrounded;
@@ -54,6 +55,7 @@ public class PlayerMove : MonoBehaviour
     {
         float lookY = Mathf.Clamp(InputHandler.LookY * sensitivityY, minY, maxY);
         player.localEulerAngles = new Vector3(0, InputHandler.LookX * sensitivityX, 0);
+        _light.transform.localEulerAngles = new Vector3(lookY, 0, 0);
         _camera.localEulerAngles = new Vector3(lookY, 0, 0);
     }
  

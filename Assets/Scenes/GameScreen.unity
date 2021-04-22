@@ -12600,6 +12600,25 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &414814535 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 84aba871bbe804f2cbf5ee79473d7af1, type: 3}
+  m_PrefabInstance: {fileID: 1143625096}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &414814536
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414814535}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &415192776
 GameObject:
   m_ObjectHideFlags: 0
@@ -47901,15 +47920,51 @@ MonoBehaviour:
     m_ActionId: 426a0a38-ef15-4189-acbf-24c3a037219c
     m_ActionName: Player/Look[/Mouse/delta/x,/Mouse/delta/y]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 628900678}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: fb2e0f91-af4f-46bc-b9b5-11a998db04f5
     m_ActionName: Player/Pause[/Keyboard/escape]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 628900678}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: OnFlashlight
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 3386d93a-0b94-41d5-9d47-0f039a7afcd7
     m_ActionName: Player/Flashlight[/Keyboard/f]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 628900678}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: OnMap
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: ad4b745c-ea43-44c1-951b-b103bd04fef6
     m_ActionName: Player/Map[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 1
@@ -47931,8 +47986,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 7
   runSpeed: 17
-  sensitivityX: 1
-  sensitivityY: 1
+  sensitivityX: 2
+  sensitivityY: 2
   minY: -60
   maxY: 60
   gravity: 9.81
@@ -47943,6 +47998,7 @@ MonoBehaviour:
   _groundMask:
     serializedVersion: 2
     m_Bits: 256
+  _light: {fileID: 646046993}
   IsAudible: 0
 --- !u!1001 &1505905067
 PrefabInstance:
@@ -56753,7 +56809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 613802906}
   audioManager: {fileID: 1812863255}
-  inputHandler: {fileID: 0}
+  inputHandler: {fileID: 628900678}
 --- !u!1 &1850068709
 GameObject:
   m_ObjectHideFlags: 0
@@ -61516,7 +61572,7 @@ MonoBehaviour:
   m_TrackedDevicePositionAction: {fileID: 4754684134866288074, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_DeselectOnBackgroundClick: 1
-  m_PointerBehavior: 0
+  m_PointerBehavior: 2
 --- !u!114 &1997155007
 MonoBehaviour:
   m_ObjectHideFlags: 0

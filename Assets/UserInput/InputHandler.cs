@@ -72,6 +72,6 @@ public class InputHandler : MonoBehaviour
 
     public void OnMap(InputAction.CallbackContext context) 
     {
-        _hasUsedFlashlightThisFrame = context.performed;
+        _hasOpenedMap = context.performed;
     }
 }
