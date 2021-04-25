@@ -8,8 +8,6 @@ public class PlayerMove : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private int walkSpeed;
     [SerializeField] private int runSpeed;
-    [SerializeField] private float sensitivityX;
-    [SerializeField] private float sensitivityY;
     [SerializeField] private float minY = -60f;
     [SerializeField] private float maxY = 60f;
     [SerializeField] private float gravity = 9.81f;
@@ -53,8 +51,8 @@ public class PlayerMove : MonoBehaviour
  
     void Look()
     {
-        float lookY = Mathf.Clamp(InputHandler.LookY * sensitivityY, minY, maxY);
-        player.localEulerAngles = new Vector3(0, InputHandler.LookX * sensitivityX, 0);
+        float lookY = Mathf.Clamp(InputHandler.LookY * MouseSensitivity.Instance.sensitivity, minY, maxY);
+        player.localEulerAngles = new Vector3(0, InputHandler.LookX * MouseSensitivity.Instance.sensitivity, 0);
         _light.transform.localEulerAngles = new Vector3(lookY, 0, 0);
         _camera.localEulerAngles = new Vector3(lookY, 0, 0);
     }

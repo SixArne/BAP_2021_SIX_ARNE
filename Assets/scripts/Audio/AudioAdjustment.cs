@@ -20,7 +20,7 @@ public class AudioAdjustment : MonoBehaviour
         mixer.GetFloat("MusicVolume", out volume);
 
         _slider = GetComponent<Slider>();
-        _slider.value = Mathf.Pow(10, volume);
+        _slider.value = Mathf.Pow(10, volume / 20);
     }
 
     public void SetLevel(float volume)

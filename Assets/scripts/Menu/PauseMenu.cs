@@ -61,6 +61,10 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitGame()
     {
+        pauseMenuUI.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Time.timeScale = 1f;
+
         Application.Quit();
     }
 }
