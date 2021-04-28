@@ -5,7 +5,7 @@ using UnityEngine;
 public class MouseSensitivity : MonoBehaviour
 {
     public static MouseSensitivity Instance;
-    public float sensitivity = 1;
+    public float sensitivity = 3;
 
    void Awake() 
     {
