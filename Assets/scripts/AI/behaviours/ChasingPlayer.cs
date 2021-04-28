@@ -34,7 +34,8 @@ public class ChasingPlayer : StateMachineBehaviour
 
         player = GameObject.FindWithTag("Player");
         
-        AudioHandler.INSTANCE.SwapTrack(chasingClip);
+        if (!AudioHandler.INSTANCE.IsPlayingClip(chasingClip))
+            AudioHandler.INSTANCE.SwapTrack(chasingClip);
     }
     
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

@@ -31,16 +31,19 @@ public class InvestigateSound : StateMachineBehaviour
         // might cause a problem later
         if (_player == null && _agent == null)
         {
-            _player = GameObject.FindWithTag("Player");
-            _lastPosition = _player.transform.position;
+            _player = GameObject.FindWithTag("Player");    
             _agent = animator.gameObject.GetComponent<NavMeshAgent>();
         }
 
+        _lastPosition = _player.transform.position;
         _agentPatrollingSpeed = _agent.speed;
         _agent.speed = agentChasingSpeed;
         _agent.SetDestination(_lastPosition);
-        
-        AudioHandler.INSTANCE.SwapTrack(investigatingClip);
+
+        if (!AudioHandler.INSTANCE.IsPlayingClip(investigatingClip))
+            AudioHandler.INSTANCE.SwapTrack(investigatingClip);
+
+        Debug.Log(_lastPosition);
     }
     
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

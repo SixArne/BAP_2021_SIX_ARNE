@@ -11,6 +11,8 @@ public class AudioHandler : MonoBehaviour
 
     [SerializeField] private AudioSource track1, track2;
     private bool isPlayingTrack1;
+
+    private AudioClip lastPlayedClip;
     
     private void Awake()
     {
@@ -30,6 +32,10 @@ public class AudioHandler : MonoBehaviour
     {
         track1.Pause();
         track2.Pause();
+    }
+
+    public bool IsPlayingClip(AudioClip clip) {
+        return (lastPlayedClip == clip);
     }
 
     public void Resume()
@@ -56,6 +62,8 @@ public class AudioHandler : MonoBehaviour
     {
         float timeToFade = 1.25f;
         float timeElapsed = 0;
+
+        lastPlayedClip = newClip;
         
         if (isPlayingTrack1)
         {
