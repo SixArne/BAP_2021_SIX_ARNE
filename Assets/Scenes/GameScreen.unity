@@ -2590,7 +2590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b5fcf1cba7b54ceb801fedbdb559b06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayLength: 5
+  rayLength: 10
   layerMaskInteract:
     serializedVersion: 2
     m_Bits: 512
@@ -2610,7 +2610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b83ccf8983c047cc8205e1bdcda5c01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayLength: 8
+  rayLength: 16
   layerMaskInteract:
     serializedVersion: 2
     m_Bits: 512
@@ -38360,6 +38360,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5d1dc8e8436d47aab9c21ceefa85095, type: 3}
+--- !u!82 &1199066507 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: -1960946467901858285, guid: f2977b50e75c44f6a9c7021c903b1974, type: 3}
+  m_PrefabInstance: {fileID: 1238344678838481532}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1202912978
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39399,7 +39404,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -39495,7 +39500,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -57525,6 +57530,7 @@ MonoBehaviour:
   pauseMenuUI: {fileID: 613802906}
   audioManager: {fileID: 1812863255}
   inputHandler: {fileID: 628900678}
+  aiAudio: {fileID: 1199066507}
 --- !u!1 &1850068709
 GameObject:
   m_ObjectHideFlags: 0

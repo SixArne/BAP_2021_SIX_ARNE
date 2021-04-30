@@ -42,8 +42,6 @@ public class InvestigateSound : StateMachineBehaviour
 
         if (!AudioHandler.INSTANCE.IsPlayingClip(investigatingClip))
             AudioHandler.INSTANCE.SwapTrack(investigatingClip);
-
-        Debug.Log(_lastPosition);
     }
     
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

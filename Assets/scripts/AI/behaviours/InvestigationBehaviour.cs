@@ -14,7 +14,8 @@ public class InvestigationBehaviour : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        AudioHandler.INSTANCE.SwapTrack(investigatingClip);
+        if (!AudioHandler.INSTANCE.IsPlayingClip(investigatingClip))
+            AudioHandler.INSTANCE.SwapTrack(investigatingClip);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

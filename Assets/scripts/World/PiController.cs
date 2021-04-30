@@ -21,12 +21,12 @@ public class PiController : MonoBehaviour
         Classroom c = gameObject.GetComponent<MapLocation>().classroom;
 
         GameObject find = pinpoints.Find(r => r.GetComponent<MapLocation>().classroom == c);
-        pinpoints.Remove(find);
-        
-        print($"{find.name} name");
-        
-        find.SetActive(false);
-        gameObject.SetActive(false);
+        //pinpoints.Remove(find);
+
+        if (find != null) {
+            find.SetActive(false);
+            gameObject.SetActive(false);
+        }
 
         ScoreManager.instance.Increment();
     }

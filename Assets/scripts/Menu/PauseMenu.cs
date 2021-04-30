@@ -11,6 +11,8 @@ public class PauseMenu : MonoBehaviour
 
     public InputHandler inputHandler;
 
+    public AudioSource aiAudio;
+
     private bool hasPausedLastFrame;
 
     // Update is called once per frame
@@ -37,6 +39,9 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1f;
         IsPaused = false;
+
+        AudioHandler.INSTANCE.Resume();
+        aiAudio.Play();
     }
 
     void Pause()
@@ -45,6 +50,9 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0f;
         IsPaused = true;
+
+        AudioHandler.INSTANCE.Pause();
+        aiAudio.Pause();
     }
 
     public void LoadMenu()
